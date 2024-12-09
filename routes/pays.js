@@ -1,5 +1,6 @@
 const express=require("express");
 const router=express.Router();
+const validate=require("../middleware/validate");
 //importation du model pays pour traiter les fonctions 4 et 5
 const pays=require("../model/pays");
 const paysController=require("../controller/paysController");
@@ -16,7 +17,7 @@ router.get("/getById/:id",paysController.getbyid);
 
 //fonction 3 (addPays on va la traiter dans le paysController.js du dossier controller)
 
-router.post("/addPays",paysController.add);
+router.post("/addPays",validate,paysController.add);
 
 
 
